@@ -7,6 +7,8 @@ import racingcar.view.ConsoleView;
 
 public class RacingController {
 
+    public static final String EMPTY = "";
+
     public void play() {
 
         ConsoleView.inputCarNames();
@@ -27,18 +29,18 @@ public class RacingController {
     }
 
     public String inputCarNames() {
-        String carNames = "";
+        String carNames = EMPTY;
 
         while (true) {
             carNames = Console.readLine();
             try {
                 CarUtil.validateCarNames(carNames);
             } catch (IllegalArgumentException e) {
-                carNames = "";
+                carNames = EMPTY;
                 ConsoleView.printError(e.getMessage());
             }
 
-            if (!"".equals(carNames)) {
+            if (!EMPTY.equals(carNames)) {
                 break;
             }
         }
@@ -47,7 +49,7 @@ public class RacingController {
     }
 
     public String inputRound() {
-        String round = "";
+        String round = EMPTY;
 
         while (true) {
             round = Console.readLine();
@@ -55,10 +57,10 @@ public class RacingController {
                 CarUtil.validateRound(round);
             } catch (IllegalArgumentException e) {
                 ConsoleView.printError(e.getMessage());
-                round = "";
+                round = EMPTY;
             }
 
-            if (!"".equals(round)) {
+            if (!EMPTY.equals(round)) {
                 break;
             }
         }
