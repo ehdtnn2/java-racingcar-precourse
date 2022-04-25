@@ -6,6 +6,7 @@ import java.util.List;
 public class Cars {
 
     public static final int CARS_SIZE_MIN = 2;
+    public static final String INVALID_CARS_SIZE = "참가자는 2명 이상. 다시 입력하세요";
 
     private List<Car> cars;
 
@@ -23,7 +24,7 @@ public class Cars {
     private void validateCarNames(String input) {
         String[] carNames = input.split(",");
         if (carNames.length < CARS_SIZE_MIN) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(INVALID_CARS_SIZE);
         }
     }
 
